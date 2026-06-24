@@ -6,6 +6,7 @@ from tools.web_search import web_search_tool
 
 llm = ChatGroq(
     api_key=GROQ_API_KEY, 
+    model="openai/gpt-oss-20b",
     temperature=0
 )
 

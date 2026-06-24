@@ -6,6 +6,7 @@ from tools.scrape_url import scrape_url_tool
 
 llm = ChatGroq(
     api_key=GROQ_API_KEY, 
+    model="openai/gpt-oss-20b",
     temperature=0
 )
 
@@ -14,3 +15,5 @@ def build_reader_agent():
         llm, 
         tools=[scrape_url_tool]
     )
+    
+
