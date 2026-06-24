@@ -144,9 +144,9 @@ uv run streamlit run app.py
 ## Live Demo
 
 <!-- Add your deployed URL here -->
-**[Launch ResearchMind →]()**
+**[Launch ResearchMind →](https://research-mind-reck98.streamlit.app/)**
 
-*URL will be added after deployment.*
+
 
 ## License
 
