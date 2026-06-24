@@ -11,7 +11,7 @@ llm = ChatGroq(
 ).with_retry(
     retry_if_exception_type=(RateLimitError,),
     wait_exponential_jitter=True,
-    stop_after_attempt=5,
+    stop_after_attempt=8,
 )
 
 writer_chain = writer_prompt | llm | StrOutputParser()
