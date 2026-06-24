@@ -13,7 +13,8 @@ llm = ChatGroq(
 def build_search_agent():
     return create_agent(
         llm, 
-        tools=[web_search_tool]
+        tools=[web_search_tool], 
+        system_prompt="Always include all the urls of the search results.",
     )
 
 

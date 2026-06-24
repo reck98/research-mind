@@ -13,7 +13,7 @@ llm = ChatGroq(
 def build_reader_agent():
     return create_agent(
         llm, 
-        tools=[scrape_url_tool]
+        tools=[scrape_url_tool],
     )
     
 

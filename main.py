@@ -3,6 +3,7 @@ from agents.reader_agent import build_reader_agent
 from utils.chains import writer_chain, critic_chain
 from langchain.messages import HumanMessage
 from rich import print
+from utils.config import EXTRA_LINES
 
 
 def run_research_mind(topic : str) -> dict:
@@ -30,6 +31,7 @@ def run_research_mind(topic : str) -> dict:
     
     ## search agent 
     
+    print(EXTRA_LINES)
     print("Search agent is thinking...")
     search_agent = build_search_agent()
     search_result = search_agent.invoke({"messages" : [
@@ -39,9 +41,11 @@ def run_research_mind(topic : str) -> dict:
     state["search_result"] = search_result["messages"][-1].content
     print(state["search_result"])
     print("Search agent is done")
+    print(EXTRA_LINES)
     
     
     ## reader agent 
+    print(EXTRA_LINES)
     print("Reader agent is thinking...")    
     
     reader_agent = build_reader_agent()
@@ -58,9 +62,11 @@ def run_research_mind(topic : str) -> dict:
     state["scraped_content"] = reader_result["messages"][-1].content
     print(state["scraped_content"])
     print("Reader agent is done")
+    print(EXTRA_LINES)
     
     ## writer chain 
     
+    print(EXTRA_LINES)
     print("Writer chain is working...")
     
     research_combined = (
@@ -74,11 +80,13 @@ def run_research_mind(topic : str) -> dict:
     })
     
     print(state['report'])
+    print(EXTRA_LINES)
     
     print("Writer chain is done")
     
     ## critic chain 
     
+    print(EXTRA_LINES)
     print("Critic chain is working...")
     
     state['critic'] = critic_chain.invoke({
@@ -88,6 +96,7 @@ def run_research_mind(topic : str) -> dict:
     print(state['critic'])
     
     print("Critic chain is done")
+    print(EXTRA_LINES)
     
     return state
     
